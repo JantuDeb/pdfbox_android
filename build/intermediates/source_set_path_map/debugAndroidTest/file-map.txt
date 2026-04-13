@@ -1,6 +1,0 @@
-com.tom_roush.pdfbox.test.pdfbox-jetified-annotation-experimental-1.1.0-0 C:\Users\jantu\.gradle\caches\8.12\transforms\71201f70c9560040cc49da7ba0da79ab\transformed\jetified-annotation-experimental-1.1.0\res
-com.tom_roush.pdfbox.test.pdfbox-androidTest-1 C:\Users\jantu\OneDrive\Desktop\ncertsolutions\pdfbox\build\generated\res\resValues\androidTest\debug
-com.tom_roush.pdfbox.test.pdfbox-mergeDebugAndroidTestResources-2 C:\Users\jantu\OneDrive\Desktop\ncertsolutions\pdfbox\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.tom_roush.pdfbox.test.pdfbox-mergeDebugAndroidTestResources-3 C:\Users\jantu\OneDrive\Desktop\ncertsolutions\pdfbox\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.tom_roush.pdfbox.test.pdfbox-merged_res-4 C:\Users\jantu\OneDrive\Desktop\ncertsolutions\pdfbox\build\intermediates\merged_res\debugAndroidTest
-com.tom_roush.pdfbox.test.pdfbox-packaged_res-5 C:\Users\jantu\OneDrive\Desktop\ncertsolutions\pdfbox\build\intermediates\packaged_res\debug
