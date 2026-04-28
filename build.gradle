@@ -49,14 +49,6 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 
-    // Rename the output aars
-    android.libraryVariants.all { variant ->
-        variant.outputs.all { output ->
-            if (outputFileName.endsWith('.aar')) {
-                outputFileName = "pdfbox-android-${variant.name}-${defaultConfig.versionName}.aar"
-            }
-        }
-    }
 }
 
 // Test output from https://stackoverflow.com/questions/3963708/gradle-how-to-display-test-results-in-the-console-in-real-time
