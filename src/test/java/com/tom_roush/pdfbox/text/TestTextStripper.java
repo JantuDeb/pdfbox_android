@@ -36,7 +36,7 @@ import java.util.List;
 
 import com.tom_roush.fontbox.util.BoundingBox;
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
-import com.tom_roush.pdfbox.pdmodel.TestPDPageTree;
+//import com.tom_roush.pdfbox.pdmodel.TestPDPageTree;
 import com.tom_roush.pdfbox.pdmodel.font.PDFont;
 import com.tom_roush.pdfbox.pdmodel.font.PDFontDescriptor;
 import com.tom_roush.pdfbox.pdmodel.font.PDType3Font;
@@ -450,7 +450,7 @@ public class TestTextStripper
     @Test
     public void testStripByOutlineItems() throws IOException, URISyntaxException
     {
-        PDDocument doc = PDDocument.load(new File(TestPDPageTree.class.getResource("/pdfbox/com/tom_roush/pdfbox/pdmodel/with_outline.pdf").toURI()));
+        PDDocument doc = PDDocument.load(new File(PDDocument.class.getResource("/pdfbox/com/tom_roush/pdfbox/pdmodel/with_outline.pdf").toURI()));
         PDDocumentOutline outline = doc.getDocumentCatalog().getDocumentOutline();
         Iterable<PDOutlineItem> children = outline.children();
         Iterator<PDOutlineItem> it = children.iterator();

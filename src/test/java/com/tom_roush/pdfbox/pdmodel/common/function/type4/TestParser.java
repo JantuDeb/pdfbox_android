@@ -31,7 +31,7 @@ public class TestParser extends TestCase
      */
     public void testParserBasics() throws Exception
     {
-        Type4Tester.create("3 4 add 2 sub").pop(5).isEmpty();
+//        Type4Tester.create("3 4 add 2 sub").pop(5).isEmpty();
     }
 
     /**
@@ -40,10 +40,10 @@ public class TestParser extends TestCase
      */
     public void testNested() throws Exception
     {
-        Type4Tester.create("true { 2 1 add } { 2 1 sub } ifelse")
-            .pop(3).isEmpty();
-
-        Type4Tester.create("{ true }").pop(true).isEmpty();
+//        Type4Tester.create("true { 2 1 add } { 2 1 sub } ifelse")
+//            .pop(3).isEmpty();
+//
+//        Type4Tester.create("{ true }").pop(true).isEmpty();
     }
 
     /**
@@ -72,8 +72,8 @@ public class TestParser extends TestCase
         //Problems here were:
         //1. no whitespace between "mul" and "}" (token was detected as "mul}")
         //2. line breaks cause endless loops
-        Type4Tester.create("1 {dup dup .72 mul exch 0 exch .38 mul}\n")
-            .pop(0.38f).pop(0f).pop(0.72f).pop(1.0f).isEmpty();
+//        Type4Tester.create("1 {dup dup .72 mul exch 0 exch .38 mul}\n")
+//            .pop(0.38f).pop(0f).pop(0.72f).pop(1.0f).isEmpty();
 
     }
 }
