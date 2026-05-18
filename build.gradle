@@ -9,7 +9,7 @@ ext {
 }
 
 android {
-    compileSdkVersion 36
+    compileSdkVersion 37
     compileOptions.encoding = 'UTF-8'
 
     defaultConfig {
@@ -28,7 +28,7 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        targetSdk 36
+        targetSdk 37
     }
 
     sourceSets {
@@ -41,7 +41,7 @@ android {
     }
     lint {
         abortOnError false
-        targetSdk 36
+        targetSdk 37
     }
     namespace 'com.tom_roush.pdfbox'
 
