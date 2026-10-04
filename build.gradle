@@ -9,6 +9,7 @@ ext {
 }
 
 android {
+    enableKotlin = false
     compileSdkVersion "android-36.1"
     compileOptions.encoding = 'UTF-8'
 
