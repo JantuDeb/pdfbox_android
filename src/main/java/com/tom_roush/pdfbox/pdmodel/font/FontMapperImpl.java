@@ -118,31 +118,39 @@ final class FontMapperImpl implements FontMapper
         }
 
         // -------------------------
+        lastResortFont = loadLastResortFont();
+    }
 
-        try
+    /**
+     * The font used when nothing else matches. The bundled LiberationSans was dropped to keep the
+     * library small, so use the device's own sans-serif font. Returns null (with a warning) if
+     * none can be read; only text drawing needs it, not loading, encrypting or saving a PDF.
+     */
+    private static TrueTypeFont loadLastResortFont()
+    {
+        String[] candidates = {
+            "/system/fonts/Roboto-Regular.ttf",
+            "/system/fonts/DroidSans.ttf",
+            "/system/fonts/NotoSans-Regular.ttf"
+        };
+        for (String path : candidates)
         {
-            String ttfName = "com/tom_roush/pdfbox/resources/ttf/LiberationSans-Regular.ttf";
-            InputStream resourceAsStream;
-            if (PDFBoxResourceLoader.isReady())
+            java.io.File file = new java.io.File(path);
+            if (!file.isFile())
             {
-                resourceAsStream = PDFBoxResourceLoader.getStream(ttfName);
+                continue;
             }
-            else
+            try
             {
-                resourceAsStream = FontMapper.class.getResourceAsStream("/" + ttfName);
+                return new TTFParser().parse(file);
             }
-            if (resourceAsStream == null)
+            catch (IOException e)
             {
-                throw new IOException("resource '" + ttfName + "' not found");
+                Log.w("PdfBox-Android", "Could not read last-resort font " + path + ": " + e.getMessage());
             }
-            InputStream ttfStream = new BufferedInputStream(resourceAsStream);
-            TTFParser ttfParser = new TTFParser();
-            lastResortFont = ttfParser.parse(ttfStream);
         }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        Log.w("PdfBox-Android", "No last-resort font found; unmapped fonts cannot be drawn");
+        return null;
     }
 
     // lazy thread safe singleton
