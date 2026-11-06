@@ -221,14 +221,16 @@ public final class OpenTypeScript
         InputStream input = null;
         try
         {
-            if (PDFBoxResourceLoader.isReady())
+            // Scripts.txt is no longer bundled (it only feeds OpenType script lookup when
+            // drawing text); without it the table stays empty.
+            InputStream raw = PDFBoxResourceLoader.isReady()
+                ? PDFBoxResourceLoader.getStream(path)
+                : OpenTypeScript.class.getResourceAsStream(path);
+            if (raw == null)
             {
-                input = new BufferedInputStream(PDFBoxResourceLoader.getStream(path));
+                throw new IOException("resource '" + path + "' not found");
             }
-            else
-            {
-                input = new BufferedInputStream(OpenTypeScript.class.getResourceAsStream(path));
-            }
+            input = new BufferedInputStream(raw);
             parseScriptsFile(input);
         }
         catch (IOException e)
